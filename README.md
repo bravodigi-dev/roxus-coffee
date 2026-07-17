@@ -1,57 +1,43 @@
-# Roxus Coffee Website
+# Roxus Coffee Premium Website
 
-A responsive, GitHub-ready coffee e-commerce starter website for **Roxus Coffee**.
+A GitHub Pages-ready static website for **Roxus Coffee**.
 
-**Brand line:** Live Up Your Day.
+## Features
 
-## Included
-
-- Coffee flavours and filtering
-- Coffee machine catalogue
-- Cakes and pastries section
+- Premium coffee-inspired colour theme
+- Real sample coffee, machine, cake and pastry imagery
+- Responsive desktop and mobile layout
+- Product flavour filters
+- Working demo shopping cart
+- Product search
+- Subscription plans
+- Customer reviews
 - Delivery postcode checker
-- Functional demo shopping cart
-- Newsletter form
-- Responsive mobile navigation
-- Modern artisan coffee visual style
-
-## Run locally
-
-Open `index.html` directly in a browser.
-
-For a local development server:
-
-```bash
-python -m http.server 8000
-```
-
-Then open:
-
-```text
-http://localhost:8000
-```
+- Scroll reveal animations
+- GitHub Pages compatible
 
 ## Upload to GitHub
 
-1. Create a new GitHub repository called `roxus-coffee`.
-2. Upload all files from this folder.
-3. Commit the files.
-4. Open **Settings → Pages**.
-5. Under **Build and deployment**, select **Deploy from a branch**.
-6. Select the `main` branch and `/root`.
-7. Save. GitHub will provide the live website URL.
+1. Download and extract `roxus-premium-website.zip`.
+2. Open the `freedom` repository on GitHub.
+3. Select **Add file → Upload files**.
+4. Upload:
+   - `index.html`
+   - `styles.css`
+   - `script.js`
+   - `README.md`
+5. Commit the files.
+6. Open **Settings → Pages**.
+7. Choose **Deploy from a branch**.
+8. Select `main` and `/root`.
+9. Save.
 
-## Next development steps
+Your page should appear at:
 
-- Connect the products to Shopify, WooCommerce, Stripe or another payment platform.
-- Add a real product database and inventory.
-- Replace demo postcode checking with a delivery API.
-- Add customer login and order tracking.
-- Replace placeholder contact and social links.
-- Add your official Roxus logo and product photographs.
+`https://bravodigi-dev.github.io/freedom/`
 
-## Files
+## Important
 
-- `index.html` — website structure and content
-- `styles.css` — all visual styling and responsive layouts
-- `script.js` — cart, filtering, navigation and form interactions
+The sample photos are loaded from Unsplash. Replace these external image links with your own Roxus product photography before commercial launch.
+
+The cart and checkout are front-end demonstrations. To accept real payments, connect the website to Stripe, Shopify, WooCommerce or another commerce backend.

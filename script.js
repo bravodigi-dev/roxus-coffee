@@ -1,131 +1,112 @@
 const cart = [];
+const products = [
+  "Midnight Espresso","Golden Sunrise","Velvet Vanilla","Mocha Truffle",
+  "Coconut Cloud","Heritage Blend","Roxus Mini One","Roxus Barista Pro",
+  "Roxus Atelier X","Butter Croissant","Roxus Tiramisu","Burnt Cheesecake","Berry Danish"
+];
 
-const cartButton = document.getElementById("cartButton");
 const cartDrawer = document.getElementById("cartDrawer");
-const closeCart = document.getElementById("closeCart");
-const drawerBackdrop = document.getElementById("drawerBackdrop");
+const backdrop = document.getElementById("backdrop");
 const cartItems = document.getElementById("cartItems");
 const cartCount = document.getElementById("cartCount");
 const cartTotal = document.getElementById("cartTotal");
 const toast = document.getElementById("toast");
 
-function money(value) {
-  return `RM ${value.toFixed(2)}`;
-}
-
-function showToast(message) {
+function money(value){ return `RM ${value.toFixed(2)}`; }
+function showToast(message){
   toast.textContent = message;
   toast.classList.add("show");
-  window.setTimeout(() => toast.classList.remove("show"), 1800);
+  setTimeout(() => toast.classList.remove("show"), 1800);
 }
-
-function openCart() {
+function openCart(){
   cartDrawer.classList.add("open");
-  drawerBackdrop.classList.add("show");
-  document.body.classList.add("cart-open");
-  cartDrawer.setAttribute("aria-hidden", "false");
+  backdrop.classList.add("show");
+  document.body.classList.add("locked");
 }
-
-function closeCartDrawer() {
+function closeCart(){
   cartDrawer.classList.remove("open");
-  drawerBackdrop.classList.remove("show");
-  document.body.classList.remove("cart-open");
-  cartDrawer.setAttribute("aria-hidden", "true");
+  backdrop.classList.remove("show");
+  document.body.classList.remove("locked");
 }
-
-function renderCart() {
+function renderCart(){
   cartCount.textContent = cart.length;
-  const total = cart.reduce((sum, item) => sum + item.price, 0);
-  cartTotal.textContent = money(total);
-
-  if (!cart.length) {
-    cartItems.innerHTML = '<p class="empty-cart">Your cart is empty.</p>';
+  cartTotal.textContent = money(cart.reduce((sum,item) => sum + item.price, 0));
+  if(!cart.length){
+    cartItems.innerHTML = '<p class="empty">Your cart is empty.</p>';
     return;
   }
-
-  cartItems.innerHTML = cart.map((item, index) => `
+  cartItems.innerHTML = cart.map((item,index) => `
     <div class="cart-item">
-      <div>
-        <p>${item.name}</p>
-        <small>${money(item.price)}</small>
-      </div>
-      <button data-remove="${index}" aria-label="Remove ${item.name}">Remove</button>
-    </div>
-  `).join("");
-
+      <div><p>${item.name}</p><small>${money(item.price)}</small></div>
+      <button data-remove="${index}">Remove</button>
+    </div>`).join("");
   document.querySelectorAll("[data-remove]").forEach(button => {
     button.addEventListener("click", () => {
-      cart.splice(Number(button.dataset.remove), 1);
+      cart.splice(Number(button.dataset.remove),1);
       renderCart();
     });
   });
 }
-
-document.querySelectorAll(".add-to-cart").forEach(button => {
+document.querySelectorAll(".add").forEach(button => {
   button.addEventListener("click", () => {
-    cart.push({
-      name: button.dataset.name,
-      price: Number(button.dataset.price)
-    });
+    cart.push({name:button.dataset.name,price:Number(button.dataset.price)});
     renderCart();
     showToast(`${button.dataset.name} added to cart`);
   });
 });
-
-cartButton.addEventListener("click", openCart);
-closeCart.addEventListener("click", closeCartDrawer);
-drawerBackdrop.addEventListener("click", closeCartDrawer);
+document.getElementById("cartBtn").addEventListener("click", openCart);
+document.getElementById("closeCart").addEventListener("click", closeCart);
+backdrop.addEventListener("click", closeCart);
+document.getElementById("checkoutBtn").addEventListener("click", () => {
+  showToast(cart.length ? "Demo checkout ready for payment integration" : "Your cart is empty");
+});
 
 document.querySelectorAll(".filter").forEach(button => {
   button.addEventListener("click", () => {
     document.querySelectorAll(".filter").forEach(item => item.classList.remove("active"));
     button.classList.add("active");
-
-    const filter = button.dataset.filter;
     document.querySelectorAll("#coffeeGrid .product-card").forEach(card => {
-      card.classList.toggle("hidden", filter !== "all" && card.dataset.category !== filter);
+      card.classList.toggle("hidden",button.dataset.filter !== "all" && card.dataset.category !== button.dataset.filter);
     });
   });
 });
 
-const menuToggle = document.querySelector(".menu-toggle");
-const navLinks = document.querySelector(".nav-links");
+const mainNav = document.getElementById("mainNav");
+document.getElementById("mobileToggle").addEventListener("click", () => mainNav.classList.toggle("open"));
+mainNav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => mainNav.classList.remove("open")));
 
-menuToggle.addEventListener("click", () => {
-  const isOpen = navLinks.classList.toggle("open");
-  menuToggle.setAttribute("aria-expanded", String(isOpen));
+const searchPanel = document.getElementById("searchPanel");
+const searchInput = document.getElementById("searchInput");
+const searchResults = document.getElementById("searchResults");
+document.getElementById("searchBtn").addEventListener("click", () => {
+  searchPanel.classList.add("open");
+  document.body.classList.add("locked");
+  searchInput.focus();
+});
+document.getElementById("closeSearch").addEventListener("click", () => {
+  searchPanel.classList.remove("open");
+  document.body.classList.remove("locked");
+});
+searchInput.addEventListener("input", () => {
+  const value = searchInput.value.toLowerCase().trim();
+  const found = products.filter(item => item.toLowerCase().includes(value));
+  searchResults.innerHTML = value ? found.map(item => `<div class="search-result">${item}</div>`).join("") || '<div class="search-result">No products found.</div>' : "";
 });
 
-navLinks.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("open");
-    menuToggle.setAttribute("aria-expanded", "false");
-  });
+document.querySelectorAll(".plan-btn").forEach(button => {
+  button.addEventListener("click", () => showToast(`${button.dataset.plan} selected`));
 });
 
-document.getElementById("deliveryForm").addEventListener("submit", event => {
+document.getElementById("postcodeForm").addEventListener("submit", event => {
   event.preventDefault();
   const postcode = document.getElementById("postcode").value.trim();
-  const result = document.getElementById("deliveryResult");
-
-  if (!/^\d{5}$/.test(postcode)) {
-    result.textContent = "Please enter a valid 5-digit Malaysian postcode.";
-    return;
-  }
-
-  result.textContent = "Great news — delivery is available. Final fees will be shown at checkout.";
+  document.getElementById("postcodeResult").textContent =
+    /^\d{5}$/.test(postcode) ? "Great news — delivery is available in your area." : "Please enter a valid 5-digit postcode.";
 });
 
-document.getElementById("newsletterForm").addEventListener("submit", event => {
-  event.preventDefault();
-  showToast("Welcome to the Roxus Club!");
-  event.target.reset();
-});
-
-document.querySelector(".checkout-btn").addEventListener("click", () => {
-  if (!cart.length) {
-    showToast("Your cart is empty");
-    return;
-  }
-  showToast("Demo checkout ready for payment integration");
-});
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) entry.target.classList.add("visible");
+  });
+},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(element => observer.observe(element));
