@@ -1,290 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Roxus Coffee — premium artisan coffee, machines, pastries and subscriptions." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Roxus Coffee — premium artisan coffee, machines, bakery and delivery.">
   <title>Roxus Coffee | Live Up Your Day</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="announcement">Free delivery above RM80 • Freshly roasted in small batches</div>
+  <div class="announcement">♔ FREE SHIPPING on orders above RM150 • Freshly roasted and delivered to your door</div>
 
   <header class="site-header">
     <div class="container nav">
-      <a href="#home" class="logo">
-        <span class="logo-mark">R</span>
-        <span><strong>ROXUS</strong><small>COFFEE</small></span>
+      <a class="royal-logo" href="#home" aria-label="Roxus Coffee home">
+        <span class="crown">♛</span>
+        <span class="royal-r">R</span>
+        <span class="logo-text"><strong>ROXUS</strong><small>COFFEE</small></span>
       </a>
 
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">☰</button>
+      <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
 
-      <nav id="mainNav">
+      <nav id="navMenu">
+        <a href="#home">Home</a>
         <a href="#coffee">Coffee</a>
-        <a href="#machines">Machines</a>
+        <a href="#machines">Coffee Machines</a>
         <a href="#bakery">Bakery</a>
-        <a href="#subscription">Subscription</a>
-        <a href="#story">Our Story</a>
+        <a href="#subscription">Subscriptions</a>
+        <a href="#story">About</a>
       </nav>
 
-      <div class="nav-actions">
-        <button id="searchBtn" class="icon-button" aria-label="Search">⌕</button>
-        <button id="cartBtn" class="cart-button">Cart <span id="cartCount">0</span></button>
-      </div>
+      <button class="cart-button" id="cartButton">Cart <span id="cartCount">0</span></button>
     </div>
   </header>
 
   <main>
     <section class="hero" id="home">
-      <div class="hero-shade"></div>
-      <div class="container hero-content reveal">
-        <p class="eyebrow">PREMIUM ARTISAN COFFEE</p>
-        <h1>Live Up<br>Your Day.</h1>
-        <p>Crafted coffee, elegant machines and fresh bakery favourites—delivered with the warmth of a neighbourhood café.</p>
-        <div class="hero-actions">
-          <a href="#coffee" class="btn btn-primary">Shop Coffee</a>
-          <a href="#machines" class="btn btn-cream">Explore Machines</a>
+      <div class="hero-overlay"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <img class="hero-logo" src="assets/roxus-royal-r-logo.png" alt="Roxus Coffee Royal R logo">
+          <p class="eyebrow">ARTISAN COFFEE • FRESHLY ROASTED</p>
+          <h1>Live Up<br>Your Day<span>.</span></h1>
+          <p class="lead">Premium artisan coffee, beautifully crafted machines and fresh pastries—delivered from Roxus to your door.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#coffee">Shop Coffee</a>
+            <a class="btn btn-outline" href="#machines">Explore Machines</a>
+          </div>
+          <div class="trust-row">
+            <span>★★★★★</span>
+            <strong>4.9/5</strong>
+            <small>from coffee lovers</small>
+          </div>
         </div>
-        <div class="hero-proof">
-          <span>✓ Freshly roasted</span>
-          <span>✓ Fast delivery</span>
-          <span>✓ Barista selected</span>
+        <div class="hero-monogram reveal">
+          <div class="monogram-crown">♛</div>
+          <div class="monogram-r">R</div>
+          <div class="monogram-name">ROXUS</div>
+          <div class="monogram-coffee">COFFEE</div>
+          <div class="monogram-tagline">LIVE UP YOUR DAY</div>
         </div>
-      </div>
-      <div class="hero-card">
-        <span>ROXUS SIGNATURE</span>
-        <strong>Midnight Espresso</strong>
-        <small>Cocoa • Almond • Caramel</small>
       </div>
     </section>
 
-    <section class="quick-categories">
+    <section class="benefits">
+      <div class="container benefits-grid">
+        <div><span>◉</span><strong>Freshly Roasted</strong><small>Small batches daily</small></div>
+        <div><span>♕</span><strong>Premium Quality</strong><small>Selected Arabica beans</small></div>
+        <div><span>▣</span><strong>Fast Delivery</strong><small>Delivered carefully</small></div>
+        <div><span>✓</span><strong>Secure Checkout</strong><small>Payment-ready design</small></div>
+        <div><span>✦</span><strong>Expertly Crafted</strong><small>Barista-selected profiles</small></div>
+      </div>
+    </section>
+
+    <section class="category-section">
       <div class="container category-grid">
-        <a href="#coffee"><span>☕</span><div><strong>Coffee Collection</strong><small>Beans, grounds and capsules</small></div></a>
-        <a href="#machines"><span>⚙</span><div><strong>Coffee Machines</strong><small>Home and professional</small></div></a>
-        <a href="#bakery"><span>🥐</span><div><strong>Artisan Bakery</strong><small>Cakes and pastries</small></div></a>
-        <a href="#subscription"><span>📦</span><div><strong>Subscriptions</strong><small>Coffee delivered monthly</small></div></a>
+        <a class="category coffee-category" href="#coffee"><div><h3>Coffee</h3><p>Premium beans for every taste</p><span>Shop Coffee →</span></div></a>
+        <a class="category machine-category" href="#machines"><div><h3>Coffee Machines</h3><p>Brew like a barista at home</p><span>Explore →</span></div></a>
+        <a class="category bakery-category" href="#bakery"><div><h3>Bakery</h3><p>Freshly baked every day</p><span>Shop Bakery →</span></div></a>
+        <a class="category subscription-category" href="#subscription"><div><h3>Subscriptions</h3><p>Great coffee delivered monthly</p><span>Subscribe →</span></div></a>
       </div>
     </section>
 
     <section class="section" id="coffee">
       <div class="container">
-        <div class="section-heading reveal">
-          <div>
-            <p class="eyebrow dark">THE ROXUS COLLECTION</p>
-            <h2>Find your perfect flavour</h2>
-            <p>Explore coffee profiles created for bold mornings, slow afternoons and everything in between.</p>
-          </div>
-          <div class="filters">
-            <button class="filter active" data-filter="all">All</button>
-            <button class="filter" data-filter="bold">Bold</button>
-            <button class="filter" data-filter="smooth">Smooth</button>
-            <button class="filter" data-filter="flavoured">Flavoured</button>
-          </div>
+        <div class="section-head reveal">
+          <p class="eyebrow dark">THE ROYAL COLLECTION</p>
+          <h2>Signature Roxus Coffee</h2>
+          <p>Rich profiles created for bold mornings, elegant afternoons and memorable coffee rituals.</p>
+        </div>
+        <div class="filters">
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="bold">Bold</button>
+          <button class="filter" data-filter="smooth">Smooth</button>
+          <button class="filter" data-filter="flavoured">Flavoured</button>
         </div>
 
         <div class="product-grid" id="coffeeGrid">
-          <article class="product-card reveal" data-category="bold" data-name="Midnight Espresso">
-            <div class="product-photo" style="background-image:url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1000&q=85')">
-              <span class="badge">BESTSELLER</span>
-            </div>
-            <div class="product-copy">
-              <p class="product-type">DARK ROAST • WHOLE BEAN</p>
-              <h3>Midnight Espresso</h3>
-              <p>Deep cocoa, toasted almond and a smooth caramel finish.</p>
-              <div class="rating">★★★★★ <span>4.9</span></div>
-              <div class="product-bottom"><strong>RM 38.00</strong><button class="add" data-name="Midnight Espresso" data-price="38">Add +</button></div>
-            </div>
+          <article class="product-card reveal" data-category="bold">
+            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1000&q=85')"><span>BESTSELLER</span></div>
+            <div class="product-body"><p>DARK ROAST • WHOLE BEAN</p><h3>Midnight Espresso</h3><small>Cocoa, toasted almond and caramel.</small><div><strong>RM 38.00</strong><button class="add" data-name="Midnight Espresso" data-price="38">Add +</button></div></div>
           </article>
-
-          <article class="product-card reveal" data-category="smooth" data-name="Golden Sunrise">
-            <div class="product-photo" style="background-image:url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=85')">
-              <span class="badge gold">SMOOTH</span>
-            </div>
-            <div class="product-copy">
-              <p class="product-type">MEDIUM ROAST • GROUND</p>
-              <h3>Golden Sunrise</h3>
-              <p>Honey sweetness, citrus brightness and roasted hazelnut.</p>
-              <div class="rating">★★★★★ <span>4.8</span></div>
-              <div class="product-bottom"><strong>RM 34.00</strong><button class="add" data-name="Golden Sunrise" data-price="34">Add +</button></div>
-            </div>
+          <article class="product-card reveal" data-category="smooth">
+            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=85')"><span>SMOOTH</span></div>
+            <div class="product-body"><p>MEDIUM ROAST • GROUND</p><h3>Golden Sunrise</h3><small>Honey, citrus and roasted hazelnut.</small><div><strong>RM 34.00</strong><button class="add" data-name="Golden Sunrise" data-price="34">Add +</button></div></div>
           </article>
-
-          <article class="product-card reveal" data-category="flavoured" data-name="Velvet Vanilla">
-            <div class="product-photo" style="background-image:url('https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=1000&q=85')">
-              <span class="badge cream-badge">AROMATIC</span>
-            </div>
-            <div class="product-copy">
-              <p class="product-type">MEDIUM ROAST • WHOLE BEAN</p>
-              <h3>Velvet Vanilla</h3>
-              <p>Creamy vanilla, soft caramel and a silky café-style finish.</p>
-              <div class="rating">★★★★★ <span>4.7</span></div>
-              <div class="product-bottom"><strong>RM 39.00</strong><button class="add" data-name="Velvet Vanilla" data-price="39">Add +</button></div>
-            </div>
+          <article class="product-card reveal" data-category="flavoured">
+            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=1000&q=85')"><span>AROMATIC</span></div>
+            <div class="product-body"><p>MEDIUM ROAST • WHOLE BEAN</p><h3>Velvet Vanilla</h3><small>Vanilla, soft caramel and silky cream.</small><div><strong>RM 39.00</strong><button class="add" data-name="Velvet Vanilla" data-price="39">Add +</button></div></div>
           </article>
-
-          <article class="product-card reveal" data-category="flavoured" data-name="Mocha Truffle">
-            <div class="product-photo" style="background-image:url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1000&q=85')">
-              <span class="badge">INDULGENT</span>
-            </div>
-            <div class="product-copy">
-              <p class="product-type">DARK ROAST • GROUND</p>
-              <h3>Mocha Truffle</h3>
-              <p>Dark chocolate, roasted coffee and a rich truffle aroma.</p>
-              <div class="rating">★★★★★ <span>4.9</span></div>
-              <div class="product-bottom"><strong>RM 42.00</strong><button class="add" data-name="Mocha Truffle" data-price="42">Add +</button></div>
-            </div>
+          <article class="product-card reveal" data-category="flavoured">
+            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1000&q=85')"><span>INDULGENT</span></div>
+            <div class="product-body"><p>DARK ROAST • GROUND</p><h3>Mocha Truffle</h3><small>Dark chocolate and rich truffle aroma.</small><div><strong>RM 42.00</strong><button class="add" data-name="Mocha Truffle" data-price="42">Add +</button></div></div>
           </article>
-
-          <article class="product-card reveal" data-category="smooth" data-name="Coconut Cloud">
-            <div class="product-photo" style="background-image:url('https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=1000&q=85')">
-              <span class="badge sage">TROPICAL</span>
-            </div>
-            <div class="product-copy">
-              <p class="product-type">LIGHT ROAST • CAPSULES</p>
-              <h3>Coconut Cloud</h3>
-              <p>Light-bodied coffee with toasted coconut and brown sugar.</p>
-              <div class="rating">★★★★★ <span>4.6</span></div>
-              <div class="product-bottom"><strong>RM 29.00</strong><button class="add" data-name="Coconut Cloud" data-price="29">Add +</button></div>
-            </div>
+          <article class="product-card reveal" data-category="smooth">
+            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=1000&q=85')"><span>TROPICAL</span></div>
+            <div class="product-body"><p>LIGHT ROAST • CAPSULES</p><h3>Coconut Cloud</h3><small>Toasted coconut and brown sugar.</small><div><strong>RM 29.00</strong><button class="add" data-name="Coconut Cloud" data-price="29">Add +</button></div></div>
           </article>
-
-          <article class="product-card reveal" data-category="bold" data-name="Heritage Blend">
-            <div class="product-photo" style="background-image:url('https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=1000&q=85')">
-              <span class="badge">SIGNATURE</span>
-            </div>
-            <div class="product-copy">
-              <p class="product-type">DARK ROAST • WHOLE BEAN</p>
-              <h3>Heritage Blend</h3>
-              <p>Full-bodied, smoky and balanced with molasses sweetness.</p>
-              <div class="rating">★★★★★ <span>4.8</span></div>
-              <div class="product-bottom"><strong>RM 45.00</strong><button class="add" data-name="Heritage Blend" data-price="45">Add +</button></div>
-            </div>
+          <article class="product-card reveal" data-category="bold">
+            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=1000&q=85')"><span>SIGNATURE</span></div>
+            <div class="product-body"><p>DARK ROAST • WHOLE BEAN</p><h3>Heritage Blend</h3><small>Smoky, full-bodied and balanced.</small><div><strong>RM 45.00</strong><button class="add" data-name="Heritage Blend" data-price="45">Add +</button></div></div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="image-banner">
-      <div class="container banner-grid">
-        <div class="reveal">
-          <p class="eyebrow">THE ROXUS DIFFERENCE</p>
-          <h2>From roast to ritual.</h2>
-          <p>We select expressive coffee profiles, roast in smaller batches and pack every order to preserve aroma and freshness.</p>
-          <a href="#story" class="text-link">Discover our story →</a>
-        </div>
-        <div class="stat-grid">
-          <div><strong>100%</strong><span>Arabica selection</span></div>
-          <div><strong>48h</strong><span>Roast-to-pack target</span></div>
-          <div><strong>6</strong><span>Signature flavours</span></div>
-          <div><strong>4.8★</strong><span>Customer rating</span></div>
-        </div>
+    <section class="royal-banner">
+      <div class="container royal-banner-grid">
+        <div class="reveal"><p class="eyebrow">ROXUS BREW SYSTEMS</p><h2>Royal design.<br>Barista performance.</h2><p>Elegant machines built for effortless everyday coffee and refined espresso rituals.</p><a class="btn btn-gold" href="#machines">Shop Machines</a></div>
+        <div class="banner-r reveal"><span>♛</span>R</div>
       </div>
     </section>
 
-    <section class="section soft" id="machines">
+    <section class="section light" id="machines">
       <div class="container">
-        <div class="section-heading reveal">
-          <div>
-            <p class="eyebrow dark">ROXUS BREW SYSTEMS</p>
-            <h2>Machines for every ritual</h2>
-            <p>Beautifully designed systems for quick coffee, hands-on espresso and effortless one-touch drinks.</p>
-          </div>
-        </div>
-
+        <div class="section-head reveal"><p class="eyebrow dark">COFFEE MACHINES</p><h2>Choose your Roxus machine</h2></div>
         <div class="machine-grid">
-          <article class="machine-card reveal">
-            <div class="machine-image" style="background-image:url('https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=1000&q=85')"></div>
-            <div class="machine-content"><p class="product-type">COMPACT CAPSULE SYSTEM</p><h3>Roxus Mini One</h3><p>Fast, clean and ideal for weekday coffee.</p><strong>RM 399.00</strong><button class="add full" data-name="Roxus Mini One" data-price="399">Add to cart</button></div>
-          </article>
-          <article class="machine-card featured reveal">
-            <span class="machine-label">MOST POPULAR</span>
-            <div class="machine-image" style="background-image:url('https://images.unsplash.com/photo-1587080413959-06b859fb107d?auto=format&fit=crop&w=1000&q=85')"></div>
-            <div class="machine-content"><p class="product-type">ESPRESSO & MILK SYSTEM</p><h3>Roxus Barista Pro</h3><p>Integrated grinder, steam wand and extraction control.</p><strong>RM 1,899.00</strong><button class="add full" data-name="Roxus Barista Pro" data-price="1899">Add to cart</button></div>
-          </article>
-          <article class="machine-card reveal">
-            <div class="machine-image" style="background-image:url('https://images.unsplash.com/photo-1565452344518-47faca79dc69?auto=format&fit=crop&w=1000&q=85')"></div>
-            <div class="machine-content"><p class="product-type">FULLY AUTOMATIC</p><h3>Roxus Atelier X</h3><p>One-touch espresso, latte and cappuccino.</p><strong>RM 3,499.00</strong><button class="add full" data-name="Roxus Atelier X" data-price="3499">Add to cart</button></div>
-          </article>
+          <article class="machine-card reveal"><div style="background-image:url('https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=1000&q=85')"></div><section><h3>Roxus Mini One</h3><p>Compact capsule brewing for quick coffee.</p><strong>RM 399.00</strong><button class="add" data-name="Roxus Mini One" data-price="399">Add to cart</button></section></article>
+          <article class="machine-card featured reveal"><div style="background-image:url('https://images.unsplash.com/photo-1587080413959-06b859fb107d?auto=format&fit=crop&w=1000&q=85')"></div><section><h3>Roxus Barista Pro</h3><p>Integrated grinder and professional steam wand.</p><strong>RM 1,899.00</strong><button class="add" data-name="Roxus Barista Pro" data-price="1899">Add to cart</button></section></article>
+          <article class="machine-card reveal"><div style="background-image:url('https://images.unsplash.com/photo-1565452344518-47faca79dc69?auto=format&fit=crop&w=1000&q=85')"></div><section><h3>Roxus Atelier X</h3><p>One-touch espresso, latte and cappuccino.</p><strong>RM 3,499.00</strong><button class="add" data-name="Roxus Atelier X" data-price="3499">Add to cart</button></section></article>
         </div>
       </div>
     </section>
 
     <section class="section" id="bakery">
       <div class="container">
-        <div class="section-heading reveal">
-          <div><p class="eyebrow dark">BAKED FRESH DAILY</p><h2>Coffee deserves good company</h2><p>Artisan cakes and pastries selected to pair beautifully with every Roxus cup.</p></div>
-        </div>
-
+        <div class="section-head reveal"><p class="eyebrow dark">ARTISAN BAKERY</p><h2>Coffee deserves good company</h2></div>
         <div class="bakery-grid">
-          <article class="bakery-card reveal"><div class="bakery-image" style="background-image:url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=900&q=85')"></div><div><h3>Butter Croissant</h3><p>Flaky, golden and baked fresh.</p><div><strong>RM 8.90</strong><button class="add" data-name="Butter Croissant" data-price="8.9">Add +</button></div></div></article>
-          <article class="bakery-card reveal"><div class="bakery-image" style="background-image:url('https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=900&q=85')"></div><div><h3>Roxus Tiramisu</h3><p>Espresso-soaked layers and mascarpone.</p><div><strong>RM 18.90</strong><button class="add" data-name="Roxus Tiramisu" data-price="18.9">Add +</button></div></div></article>
-          <article class="bakery-card reveal"><div class="bakery-image" style="background-image:url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85')"></div><div><h3>Burnt Cheesecake</h3><p>Caramelised top with a creamy centre.</p><div><strong>RM 16.90</strong><button class="add" data-name="Burnt Cheesecake" data-price="16.9">Add +</button></div></div></article>
-          <article class="bakery-card reveal"><div class="bakery-image" style="background-image:url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=85')"></div><div><h3>Berry Danish</h3><p>Buttery pastry with seasonal berries.</p><div><strong>RM 10.90</strong><button class="add" data-name="Berry Danish" data-price="10.9">Add +</button></div></div></article>
+          <article class="bakery-card reveal"><div style="background-image:url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=900&q=85')"></div><section><h3>Butter Croissant</h3><p>Flaky and baked fresh.</p><strong>RM 8.90</strong><button class="add" data-name="Butter Croissant" data-price="8.9">Add +</button></section></article>
+          <article class="bakery-card reveal"><div style="background-image:url('https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=900&q=85')"></div><section><h3>Roxus Tiramisu</h3><p>Espresso-soaked mascarpone layers.</p><strong>RM 18.90</strong><button class="add" data-name="Roxus Tiramisu" data-price="18.9">Add +</button></section></article>
+          <article class="bakery-card reveal"><div style="background-image:url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85')"></div><section><h3>Burnt Cheesecake</h3><p>Caramelised and creamy.</p><strong>RM 16.90</strong><button class="add" data-name="Burnt Cheesecake" data-price="16.9">Add +</button></section></article>
+          <article class="bakery-card reveal"><div style="background-image:url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=85')"></div><section><h3>Berry Danish</h3><p>Buttery pastry with berries.</p><strong>RM 10.90</strong><button class="add" data-name="Berry Danish" data-price="10.9">Add +</button></section></article>
         </div>
       </div>
     </section>
 
     <section class="subscription" id="subscription">
       <div class="container">
-        <div class="subscription-header reveal">
-          <p class="eyebrow">THE ROXUS CLUB</p>
-          <h2>Never run out of good coffee.</h2>
-          <p>Choose a monthly plan and receive freshly roasted coffee at your preferred frequency.</p>
-        </div>
-        <div class="plans">
-          <article class="plan reveal"><span>BRONZE</span><h3>Morning Starter</h3><strong>RM 58<small>/month</small></strong><p>2 coffee bags<br>Free tasting notes<br>Flexible delivery date</p><button class="plan-btn" data-plan="Morning Starter">Choose Bronze</button></article>
-          <article class="plan highlight reveal"><span>MOST POPULAR</span><h3>Daily Ritual</h3><strong>RM 108<small>/month</small></strong><p>4 coffee bags<br>10% bakery discount<br>Free delivery</p><button class="plan-btn" data-plan="Daily Ritual">Choose Gold</button></article>
-          <article class="plan reveal"><span>PREMIUM</span><h3>Roxus Reserve</h3><strong>RM 168<small>/month</small></strong><p>6 coffee bags<br>Exclusive seasonal roast<br>Priority delivery</p><button class="plan-btn" data-plan="Roxus Reserve">Choose Reserve</button></article>
+        <div class="section-head centered reveal"><p class="eyebrow">THE ROXUS CLUB</p><h2>Royal coffee, delivered monthly</h2></div>
+        <div class="plan-grid">
+          <article class="plan reveal"><span>BRONZE</span><h3>Morning Starter</h3><strong>RM 58<small>/month</small></strong><p>2 coffee bags<br>Flexible delivery<br>Tasting notes</p><button data-plan="Morning Starter">Choose Plan</button></article>
+          <article class="plan premium reveal"><span>ROYAL FAVOURITE</span><h3>Daily Ritual</h3><strong>RM 108<small>/month</small></strong><p>4 coffee bags<br>Free delivery<br>10% bakery discount</p><button data-plan="Daily Ritual">Choose Plan</button></article>
+          <article class="plan reveal"><span>RESERVE</span><h3>Roxus Reserve</h3><strong>RM 168<small>/month</small></strong><p>6 coffee bags<br>Seasonal roast<br>Priority delivery</p><button data-plan="Roxus Reserve">Choose Plan</button></article>
         </div>
       </div>
     </section>
 
     <section class="section story" id="story">
       <div class="container story-grid">
-        <div class="story-image reveal"></div>
-        <div class="reveal">
-          <p class="eyebrow dark">OUR STORY</p>
-          <h2>Better coffee. Brighter days.</h2>
-          <p>Roxus was created for people who believe coffee is more than a drink. It is a pause, a ritual and a small moment that can change the rhythm of the day.</p>
-          <p>Our collection brings together expressive coffee, dependable machines and bakery favourites—made simple for delivery.</p>
-          <blockquote>“Live Up Your Day.”</blockquote>
-        </div>
-      </div>
-    </section>
-
-    <section class="reviews">
-      <div class="container">
-        <div class="reviews-head reveal"><p class="eyebrow dark">LOVED BY COFFEE PEOPLE</p><h2>What customers are saying</h2></div>
-        <div class="review-grid">
-          <article class="review reveal"><div>★★★★★</div><p>“Midnight Espresso is bold without being bitter. It has become my everyday coffee.”</p><strong>— Alicia K.</strong></article>
-          <article class="review reveal"><div>★★★★★</div><p>“The Barista Pro looks beautiful in the kitchen and the milk texture is excellent.”</p><strong>— Daniel T.</strong></article>
-          <article class="review reveal"><div>★★★★★</div><p>“The tiramisu arrived fresh and paired perfectly with Golden Sunrise.”</p><strong>— Mira S.</strong></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="delivery">
-      <div class="container delivery-grid">
-        <div class="reveal"><p class="eyebrow">ROXUS TO YOUR DOOR</p><h2>Fresh coffee and bakery delivery</h2><p>Choose your favourites, select a delivery slot and enjoy artisan coffee at home or at work.</p></div>
-        <form id="postcodeForm" class="delivery-form reveal">
-          <h3>Check your delivery area</h3>
-          <label for="postcode">Postcode</label>
-          <div><input id="postcode" maxlength="5" placeholder="e.g. 40150" required><button class="btn btn-primary">Check</button></div>
-          <p id="postcodeResult"></p>
-        </form>
+        <img class="brand-board reveal" src="assets/roxus-royal-r-logo.png" alt="Roxus Coffee royal brand identity">
+        <div class="reveal"><p class="eyebrow dark">THE ROXUS STORY</p><h2>A royal standard for everyday coffee</h2><p>Roxus celebrates the small ritual that changes the rhythm of the day. Our coffee, machines and bakery collection are created to feel refined, warm and easy to enjoy.</p><blockquote>Live Up Your Day.</blockquote></div>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="container footer-grid">
-      <div><a href="#home" class="logo footer-logo"><span class="logo-mark">R</span><span><strong>ROXUS</strong><small>COFFEE</small></span></a><p>Premium artisan coffee, machines and fresh bakery delivery.</p></div>
+      <div class="footer-brand"><span>♛</span><strong>R</strong><h3>ROXUS COFFEE</h3><p>Live Up Your Day.</p></div>
       <div><h4>Shop</h4><a href="#coffee">Coffee</a><a href="#machines">Machines</a><a href="#bakery">Bakery</a></div>
-      <div><h4>Explore</h4><a href="#subscription">Subscriptions</a><a href="#story">Our Story</a><a href="#">Coffee Journal</a></div>
+      <div><h4>Explore</h4><a href="#subscription">Subscriptions</a><a href="#story">Our Story</a><a href="#">Contact</a></div>
       <div><h4>Follow</h4><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">TikTok</a></div>
     </div>
     <div class="container copyright">© 2026 Roxus Coffee. Live Up Your Day.</div>
@@ -292,19 +188,9 @@
 
   <aside class="cart-drawer" id="cartDrawer">
     <div class="cart-head"><h2>Your Cart</h2><button id="closeCart">×</button></div>
-    <div class="cart-items" id="cartItems"><p class="empty">Your cart is empty.</p></div>
-    <div class="cart-foot"><div><span>Total</span><strong id="cartTotal">RM 0.00</strong></div><button class="btn btn-primary full-width" id="checkoutBtn">Checkout</button></div>
+    <div id="cartItems" class="cart-items"><p class="empty">Your cart is empty.</p></div>
+    <div class="cart-foot"><div><span>Total</span><strong id="cartTotal">RM 0.00</strong></div><button class="btn btn-gold checkout" id="checkout">Checkout</button></div>
   </aside>
-
-  <div class="search-panel" id="searchPanel">
-    <div class="search-box">
-      <button id="closeSearch">×</button>
-      <p class="eyebrow dark">SEARCH ROXUS</p>
-      <input id="searchInput" placeholder="Search coffee, machines or bakery...">
-      <div id="searchResults"></div>
-    </div>
-  </div>
-
   <div class="backdrop" id="backdrop"></div>
   <div class="toast" id="toast"></div>
 

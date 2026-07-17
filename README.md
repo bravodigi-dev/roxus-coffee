@@ -1,43 +1,31 @@
-# Roxus Coffee Premium Website
+# Roxus Coffee — Royal R Website
 
-A GitHub Pages-ready static website for **Roxus Coffee**.
+Premium GitHub Pages-ready Roxus Coffee website featuring the large **Royal R** identity.
 
-## Features
+## Files to upload
 
-- Premium coffee-inspired colour theme
-- Real sample coffee, machine, cake and pastry imagery
-- Responsive desktop and mobile layout
-- Product flavour filters
-- Working demo shopping cart
-- Product search
-- Subscription plans
-- Customer reviews
-- Delivery postcode checker
-- Scroll reveal animations
-- GitHub Pages compatible
+Upload everything in this folder to the root of the GitHub repository:
 
-## Upload to GitHub
+- `index.html`
+- `styles.css`
+- `script.js`
+- `assets/roxus-royal-r-logo.png`
+- `README.md`
 
-1. Download and extract `roxus-premium-website.zip`.
-2. Open the `freedom` repository on GitHub.
+The `assets` folder is essential because it contains the Royal R logo.
+
+## GitHub upload
+
+1. Extract the ZIP.
+2. Open the `roxus-coffee` repository.
 3. Select **Add file → Upload files**.
-4. Upload:
-   - `index.html`
-   - `styles.css`
-   - `script.js`
-   - `README.md`
-5. Commit the files.
-6. Open **Settings → Pages**.
-7. Choose **Deploy from a branch**.
-8. Select `main` and `/root`.
-9. Save.
+4. Drag all files **and the assets folder** into GitHub.
+5. Commit the changes.
+6. Wait one or two minutes for GitHub Pages.
+7. Refresh using `Ctrl + F5`.
 
-Your page should appear at:
+## Notes
 
-`https://bravodigi-dev.github.io/freedom/`
-
-## Important
-
-The sample photos are loaded from Unsplash. Replace these external image links with your own Roxus product photography before commercial launch.
-
-The cart and checkout are front-end demonstrations. To accept real payments, connect the website to Stripe, Shopify, WooCommerce or another commerce backend.
+- Coffee and bakery photos are sample images loaded from Unsplash.
+- The shopping cart is a front-end demonstration.
+- Real checkout requires Stripe, Shopify, WooCommerce or another payment backend.
