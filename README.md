@@ -1,17 +1,19 @@
-# Roxus Coffee — Pour-Over Edition
+# Roxus Coffee GitHub Website
 
-GitHub Pages-ready Roxus Coffee website with a cinematic pour-over coffee hero, Royal R identity, coffee products, machines, bakery, subscriptions, animations and a demo shopping cart.
+This package contains:
+
+- `index.html` — complete website with embedded CSS and JavaScript
+- `assets/hero-coffee.png` — the exact espresso-pouring hero image
 
 ## Upload to GitHub
 
-Upload all files and the `assets` folder to the root of your `roxus-coffee` repository:
+Upload both the `index.html` file and the complete `assets` folder to the root of the repository.
 
-- `index.html`
-- `styles.css`
-- `script.js`
-- `README.md`
-- `assets/roxus-royal-r-logo.png`
+Your repository should look like:
 
-Commit the changes, wait one or two minutes, then refresh the live site with Ctrl + F5.
+roxus-coffee/
+- index.html
+- assets/
+  - hero-coffee.png
 
-The sample photos are loaded from Unsplash. Replace them with official Roxus photographs before commercial launch.
+After committing, wait one or two minutes and refresh the GitHub Pages site using Ctrl + F5.

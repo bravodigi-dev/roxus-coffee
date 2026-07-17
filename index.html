@@ -1,204 +1,451 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Roxus Coffee — premium artisan coffee, machines, bakery and delivery.">
-  <title>Roxus Coffee | Live Up Your Day</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Roxus Coffee — premium artisan coffee, machines, bakery and subscriptions.">
+<title>Roxus Coffee | Live Up Your Day</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --black:#0d0907;
+  --deep:#17100c;
+  --brown:#3a241c;
+  --gold:#d6a85a;
+  --gold-light:#efc06d;
+  --cream:#f7f0e5;
+  --white:#fffdf8;
+  --muted:#b6a89b;
+  --border:rgba(214,168,90,.28);
+  --shadow:0 25px 70px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"DM Sans",sans-serif;color:#2b1d16;background:var(--white)}
+body.locked{overflow:hidden}
+a{text-decoration:none;color:inherit}
+button{font:inherit;cursor:pointer}
+.container{width:min(1200px,calc(100% - 40px));margin:auto}
+
+.announcement{
+  background:linear-gradient(90deg,#1e140e,#4a3020,#1e140e);
+  color:#f7ead6;text-align:center;padding:9px 16px;font-size:12px;letter-spacing:.04em;
+}
+.site-header{
+  position:absolute;top:35px;left:0;right:0;z-index:40;color:white;
+}
+.nav{min-height:88px;display:flex;align-items:center;gap:28px}
+.brand{width:190px;display:flex;flex-direction:column;align-items:flex-start;color:var(--gold)}
+.brand-symbol{line-height:.8}
+.brand-crown{display:block;text-align:center;font-size:30px;margin-bottom:-7px}
+.brand-r{display:block;font:700 86px/1 "Cinzel",serif;margin-left:10px}
+.brand-name{font:600 24px "Cinzel",serif;letter-spacing:.28em;margin-top:3px}
+.brand-coffee{font:600 11px "Cinzel",serif;letter-spacing:.45em;margin-left:.45em}
+.brand-tagline{margin-top:9px;font-size:8px;letter-spacing:.32em}
+nav{flex:1;display:flex;justify-content:center;align-items:center;gap:27px}
+nav a{font-size:12px;font-weight:700;text-transform:uppercase;position:relative}
+nav a:after{content:"";position:absolute;left:0;bottom:-9px;width:0;height:1px;background:var(--gold);transition:.25s}
+nav a:hover:after{width:100%}
+.nav-actions{display:flex;align-items:center;gap:13px}
+.icon-btn{width:38px;height:38px;display:grid;place-items:center;border:0;color:white;background:transparent;font-size:20px}
+.cart-btn{border:1px solid var(--gold);background:transparent;color:white;border-radius:99px;padding:10px 15px;font-weight:700}
+.cart-btn span{display:inline-grid;place-items:center;width:21px;height:21px;border-radius:50%;margin-left:6px;background:var(--gold);color:#21150d}
+.mobile-menu{display:none;border:0;background:none;color:white;font-size:25px}
+
+.hero{min-height:760px;position:relative;overflow:hidden;color:white;background:#0b0806}
+.hero-bg{
+  position:absolute;inset:-2%;
+  background:url("assets/hero-coffee.png") center center/cover no-repeat;
+  animation:heroZoom 18s ease-in-out infinite alternate;
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,rgba(8,5,3,.98) 0%,rgba(15,9,5,.90) 35%,rgba(16,10,6,.36) 64%,rgba(8,5,3,.10) 100%),
+    linear-gradient(0deg,rgba(5,3,2,.45),transparent 45%);
+}
+@keyframes heroZoom{from{transform:scale(1.01)}to{transform:scale(1.07)}}
+.hero-inner{
+  position:relative;z-index:2;min-height:760px;
+  display:grid;grid-template-columns:1fr 1.1fr;align-items:end;gap:30px;padding:185px 0 70px;
+}
+.hero-copy{max-width:610px}
+.eyebrow{margin:0 0 18px;color:var(--gold-light);font-size:12px;font-weight:800;letter-spacing:.23em}
+.hero h1{font:600 clamp(64px,7vw,108px)/.93 "Cinzel",serif;letter-spacing:-.045em;margin:0;color:#fffaf2;text-shadow:0 6px 35px rgba(0,0,0,.7)}
+.hero h1 span{color:var(--gold)}
+.hero-copy>p:not(.eyebrow){max-width:520px;color:#e1c99c;font-size:18px;line-height:1.55}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin:28px 0 22px}
+.btn{min-height:50px;padding:0 24px;border:0;display:inline-flex;justify-content:center;align-items:center;text-transform:uppercase;font-size:12px;font-weight:800;letter-spacing:.04em;transition:.25s}
+.btn:hover{transform:translateY(-3px)}
+.btn-gold{background:linear-gradient(135deg,var(--gold-light),var(--gold));color:#1b110b}
+.btn-outline{border:1px solid var(--gold);color:white;background:rgba(12,8,5,.35)}
+.hero-rating{display:flex;align-items:center;flex-wrap:wrap;gap:10px;font-size:12px}
+.hero-rating .stars{color:var(--gold-light);letter-spacing:.08em}
+.hero-rating small{color:rgba(255,255,255,.72)}
+.hero-note{justify-self:end;align-self:center;margin-right:15px;padding-left:18px;border-left:1px solid var(--gold);color:var(--gold-light);font-size:11px;line-height:1.8;letter-spacing:.18em}
+.scroll-cue{position:absolute;z-index:3;right:7%;bottom:95px;color:white;font-size:10px;letter-spacing:.18em;text-align:center}
+.scroll-cue:after{content:"⌄";display:block;margin-top:7px;color:var(--gold);font-size:18px}
+
+.benefits{background:linear-gradient(90deg,#21150e,#3c281b,#21150e);color:white;border-top:1px solid rgba(214,168,90,.24)}
+.benefit-grid{display:grid;grid-template-columns:repeat(5,1fr)}
+.benefit{padding:22px 16px;display:grid;grid-template-columns:42px 1fr;border-right:1px solid rgba(255,255,255,.12)}
+.benefit:last-child{border-right:0}
+.benefit-icon{grid-row:1/3;color:var(--gold);font-size:27px}
+.benefit strong{color:var(--gold-light);font-size:12px;text-transform:uppercase}
+.benefit small{color:rgba(255,255,255,.62);margin-top:4px}
+
+.section{padding:95px 0;scroll-margin-top:90px}
+.section-head{max-width:750px;margin-bottom:38px}
+.section-head .eyebrow{color:#a9662c}
+.section-head h2{margin:0;font:600 clamp(40px,5vw,66px)/1.04 "Cinzel",serif;color:#281a14}
+.section-head>p:last-child{color:#78675e;line-height:1.7}
+
+.category-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.category-card{min-height:310px;position:relative;background-size:cover;background-position:center;color:white;overflow:hidden}
+.category-card:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(12,7,4,.92),rgba(12,7,4,.12))}
+.category-copy{position:absolute;z-index:2;left:22px;right:22px;bottom:22px}
+.category-copy h3{margin:0;font:600 26px "Cinzel",serif}
+.category-copy p{color:rgba(255,255,255,.72)}
+.category-copy span{color:var(--gold-light);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.cat-coffee{background-image:url("https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=900&q=88")}
+.cat-machine{background-image:url("https://images.unsplash.com/photo-1587080413959-06b859fb107d?auto=format&fit=crop&w=900&q=88")}
+.cat-bakery{background-image:url("https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=900&q=88")}
+.cat-sub{background-image:url("https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=900&q=88")}
+
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.filter{border:1px solid #e2d2c0;border-radius:99px;background:white;padding:9px 15px}
+.filter.active,.filter:hover{background:var(--deep);color:white}
+
+.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.product-card{background:white;border:1px solid #eadcca;overflow:hidden;transition:.28s}
+.product-card:hover{transform:translateY(-7px);box-shadow:0 20px 50px rgba(50,27,16,.14)}
+.product-card.hidden{display:none}
+.product-image{height:275px;background-size:cover;background-position:center;position:relative}
+.product-image span{position:absolute;top:15px;left:15px;background:var(--deep);color:var(--gold-light);font-size:10px;letter-spacing:.12em;padding:7px 9px}
+.product-body{padding:20px}
+.product-body>p{font-size:10px;font-weight:800;letter-spacing:.13em;color:#a9642b}
+.product-body h3{margin:8px 0;font:600 23px "Cinzel",serif}
+.product-body small{color:#79685f}
+.product-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:20px}
+.add{border:1px solid var(--deep);background:white;padding:9px 12px;font-weight:800}
+.add:hover{background:var(--deep);color:white}
+
+.dark-section{background:radial-gradient(circle at 80% 50%,rgba(214,168,90,.15),transparent 25%),linear-gradient(120deg,#100b08,#392419);color:white}
+.dark-section .section-head h2{color:white}
+.dark-section .section-head>p:last-child{color:rgba(255,255,255,.65)}
+
+.machine-grid,.bakery-grid{display:grid;gap:22px}
+.machine-grid{grid-template-columns:repeat(3,1fr)}
+.bakery-grid{grid-template-columns:repeat(4,1fr)}
+.machine-card,.bakery-card{background:white;color:#2b1d16;overflow:hidden;border:1px solid #e7d7c4}
+.machine-image,.bakery-image{background-size:cover;background-position:center}
+.machine-image{height:250px}
+.bakery-image{height:210px}
+.card-copy{padding:20px}
+.card-copy h3{margin:0 0 8px;font:600 22px "Cinzel",serif}
+.card-copy p{color:#78675e}
+.card-copy .add{width:100%;margin-top:16px}
+
+.subscription{background:linear-gradient(125deg,#100b08,#3c271b);color:white}
+.subscription .section-head{text-align:center;margin-left:auto;margin-right:auto}
+.subscription .section-head h2{color:white}
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.plan{padding:30px;border:1px solid rgba(214,168,90,.35);background:rgba(255,255,255,.05)}
+.plan.highlight{background:var(--cream);color:#2b1d16;transform:scale(1.04)}
+.plan>span{color:var(--gold-light);font-size:10px;letter-spacing:.15em;font-weight:800}
+.plan h3{font:600 27px "Cinzel",serif}
+.plan>strong{font:600 38px "Cinzel",serif}
+.plan>strong small{font:500 12px "DM Sans",sans-serif}
+.plan p{line-height:1.8;color:rgba(255,255,255,.65)}
+.plan.highlight p{color:#74635a}
+.plan button{width:100%;padding:12px;border:0;background:var(--gold);font-weight:800}
+
+.story-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center}
+.story-logo{min-height:470px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--gold);background:radial-gradient(circle,rgba(214,168,90,.12),transparent 42%),linear-gradient(145deg,#110c09,#382419);box-shadow:var(--shadow)}
+.story-logo .brand-crown{font-size:50px}
+.story-logo .brand-r{font-size:190px;margin:0}
+.story-logo .brand-name{font-size:31px}
+.story-logo .brand-coffee{font-size:13px}
+.story-logo .brand-tagline{font-size:9px}
+.story-copy h2{font:600 clamp(40px,5vw,64px)/1.05 "Cinzel",serif;margin:0}
+.story-copy p{color:#78675e;line-height:1.8}
+blockquote{margin:28px 0 0;padding-left:20px;border-left:4px solid var(--gold);font:500 28px "Cinzel",serif}
+
+footer{background:#0d0907;color:white;padding:65px 0 25px}
+.footer-grid{display:grid;grid-template-columns:2fr repeat(3,1fr);gap:45px}
+.footer-brand{color:var(--gold)}
+.footer-brand .brand-r{font-size:95px}
+.footer-grid>div:not(:first-child){display:flex;flex-direction:column;gap:11px}
+.footer-grid a{color:rgba(255,255,255,.58)}
+.copyright{border-top:1px solid rgba(255,255,255,.1);margin-top:42px;padding-top:20px;color:rgba(255,255,255,.38);font-size:13px}
+
+.cart-drawer{position:fixed;z-index:100;top:0;right:-430px;width:min(420px,100%);height:100vh;background:white;display:flex;flex-direction:column;box-shadow:-20px 0 50px rgba(0,0,0,.22);transition:.3s}
+.cart-drawer.open{right:0}
+.cart-head{display:flex;justify-content:space-between;align-items:center;padding:22px;border-bottom:1px solid #eadcca}
+.cart-head h2{font-family:"Cinzel",serif}
+.cart-head button{border:0;background:none;font-size:31px}
+.cart-items{flex:1;padding:18px 22px;overflow:auto}
+.cart-item{display:grid;grid-template-columns:1fr auto;padding:14px 0;border-bottom:1px solid #eadcca}
+.cart-item p{margin:0;font-weight:700}
+.cart-item small{color:#78675e}
+.cart-item button{border:0;background:none;color:#a64d3d}
+.empty{text-align:center;color:#78675e;margin-top:50px}
+.cart-foot{padding:22px;border-top:1px solid #eadcca}
+.cart-total{display:flex;justify-content:space-between;margin-bottom:17px}
+.checkout{width:100%}
+.backdrop{position:fixed;z-index:90;inset:0;background:rgba(0,0,0,.52);opacity:0;pointer-events:none;transition:.25s}
+.backdrop.show{opacity:1;pointer-events:auto}
+.toast{position:fixed;z-index:120;left:50%;bottom:25px;transform:translate(-50%,100px);opacity:0;background:var(--deep);color:white;padding:13px 20px;border-radius:99px;transition:.25s}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.reveal{opacity:0;transform:translateY(24px);transition:.7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media(prefers-reduced-motion:reduce){.hero-bg{animation:none}.reveal{opacity:1;transform:none}}
+@media(max-width:980px){
+  .mobile-menu{display:block;order:3;margin-left:auto}
+  .nav-actions{order:4}
+  .brand{width:auto}
+  .brand-name,.brand-coffee,.brand-tagline{display:none}
+  nav{display:none;position:absolute;top:84px;left:20px;right:20px;padding:24px;background:rgba(12,8,5,.98);flex-direction:column;align-items:flex-start;border:1px solid var(--border)}
+  nav.open{display:flex}
+  .hero-inner{grid-template-columns:1fr;align-items:center}
+  .hero-note,.scroll-cue{display:none}
+  .benefit-grid{grid-template-columns:repeat(2,1fr)}
+  .category-grid,.product-grid,.machine-grid{grid-template-columns:repeat(2,1fr)}
+  .bakery-grid{grid-template-columns:repeat(2,1fr)}
+  .plan-grid,.story-grid{grid-template-columns:1fr}
+  .plan.highlight{transform:none}
+  .footer-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:650px){
+  .container{width:min(100% - 28px,1200px)}
+  .site-header{top:32px}
+  .nav{min-height:74px}
+  .brand-crown{font-size:21px}
+  .brand-r{font-size:58px}
+  .icon-btn{display:none}
+  .hero{min-height:690px}
+  .hero-inner{min-height:690px;padding-top:130px}
+  .hero h1{font-size:54px}
+  .hero-copy>p:not(.eyebrow){font-size:16px}
+  .hero-benefits{flex-direction:column;gap:8px}
+  .benefit-grid,.category-grid,.product-grid,.machine-grid,.bakery-grid,.footer-grid{grid-template-columns:1fr}
+  .section{padding:72px 0}
+}
+</style>
 </head>
 <body>
-  <div class="announcement">♔ FREE SHIPPING on orders above RM150 • Freshly roasted and delivered to your door</div>
 
-  <header class="site-header">
-    <div class="container nav">
-<a class="brand" href="#home">
-  <span class="brand-symbol">
-    <span class="brand-crown">♛</span>
-    <span class="brand-r">R</span>
-  </span>
+<div class="announcement">♛ FREE SHIPPING on orders above RM150 • Freshly roasted, delivered to your door</div>
 
-  <span class="brand-copy">
-    <strong>ROXUS</strong>
-    <small>COFFEE</small>
-  </span>
-</a>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="#home">
+      <span class="brand-symbol"><span class="brand-crown">♛</span><span class="brand-r">R</span></span>
+      <span class="brand-name">ROXUS</span>
+      <span class="brand-coffee">COFFEE</span>
+      <span class="brand-tagline">LIVE UP YOUR DAY</span>
+    </a>
 
-      <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+    <button class="mobile-menu" id="mobileMenu">☰</button>
 
-      <nav id="navMenu">
-        <a href="#home">Home</a>
-        <a href="#coffee">Coffee</a>
-        <a href="#machines">Coffee Machines</a>
-        <a href="#bakery">Bakery</a>
-        <a href="#subscription">Subscriptions</a>
-        <a href="#story">About</a>
-      </nav>
+    <nav id="navMenu">
+      <a href="#home">Home</a>
+      <a href="#coffee">Coffee</a>
+      <a href="#machines">Coffee Machines</a>
+      <a href="#bakery">Bakery</a>
+      <a href="#subscription">Subscriptions</a>
+      <a href="#story">About</a>
+      <a href="#footer">Contact</a>
+    </nav>
 
-      <button class="cart-button" id="cartButton">Cart <span id="cartCount">0</span></button>
+    <div class="nav-actions">
+      <button class="icon-btn">⌕</button>
+      <button class="icon-btn">♙</button>
+      <button class="cart-btn" id="cartButton">Cart <span id="cartCount">0</span></button>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-overlay"></div>
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">PREMIUM ARTISAN COFFEE</p>
-          <h1>Live Up<br>Your Day<span>.</span></h1>
-          <p class="lead">Crafted coffee, elegant machines and fresh bakery favourites—delivered with the warmth of a neighbourhood café.</p>
-          <div class="hero-actions">
-            <a class="btn btn-gold" href="#coffee">Shop Coffee</a>
-            <a class="btn btn-outline" href="#machines">Explore Machines</a>
-          </div>
-          <div class="trust-row">
-            <span>★★★★★</span>
-            <strong>4.9/5</strong>
-            <small>from coffee lovers</small>
-          </div>
-        </div>
-        <div class="hero-monogram reveal">
-          <div class="monogram-crown">♛</div>
-          <div class="monogram-r">R</div>
-          <div class="monogram-name">ROXUS</div>
-          <div class="monogram-coffee">COFFEE</div>
-          <div class="monogram-tagline">LIVE UP YOUR DAY</div>
-        </div>
+<main>
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="container hero-inner">
+    <div class="hero-copy reveal">
+      <p class="eyebrow">PREMIUM ARTISAN COFFEE</p>
+      <h1>Live Up<br>Your Day<span>.</span></h1>
+      <p>Premium artisan coffee,<br>freshly roasted daily.</p>
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="#coffee">Shop Coffee →</a>
+        <a class="btn btn-outline" href="#machines">Explore Machines →</a>
       </div>
-    </section>
-
-    <section class="benefits">
-      <div class="container benefits-grid">
-        <div><span>◉</span><strong>Freshly Roasted</strong><small>Small batches daily</small></div>
-        <div><span>♕</span><strong>Premium Quality</strong><small>Selected Arabica beans</small></div>
-        <div><span>▣</span><strong>Fast Delivery</strong><small>Delivered carefully</small></div>
-        <div><span>✓</span><strong>Secure Checkout</strong><small>Payment-ready design</small></div>
-        <div><span>✦</span><strong>Expertly Crafted</strong><small>Barista-selected profiles</small></div>
-      </div>
-    </section>
-
-    <section class="category-section">
-      <div class="container category-grid">
-        <a class="category coffee-category" href="#coffee"><div><h3>Coffee</h3><p>Premium beans for every taste</p><span>Shop Coffee →</span></div></a>
-        <a class="category machine-category" href="#machines"><div><h3>Coffee Machines</h3><p>Brew like a barista at home</p><span>Explore →</span></div></a>
-        <a class="category bakery-category" href="#bakery"><div><h3>Bakery</h3><p>Freshly baked every day</p><span>Shop Bakery →</span></div></a>
-        <a class="category subscription-category" href="#subscription"><div><h3>Subscriptions</h3><p>Great coffee delivered monthly</p><span>Subscribe →</span></div></a>
-      </div>
-    </section>
-
-    <section class="section" id="coffee">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow dark">THE ROYAL COLLECTION</p>
-          <h2>Signature Roxus Coffee</h2>
-          <p>Rich profiles created for bold mornings, elegant afternoons and memorable coffee rituals.</p>
-        </div>
-        <div class="filters">
-          <button class="filter active" data-filter="all">All</button>
-          <button class="filter" data-filter="bold">Bold</button>
-          <button class="filter" data-filter="smooth">Smooth</button>
-          <button class="filter" data-filter="flavoured">Flavoured</button>
-        </div>
-
-        <div class="product-grid" id="coffeeGrid">
-          <article class="product-card reveal" data-category="bold">
-            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1000&q=85')"><span>BESTSELLER</span></div>
-            <div class="product-body"><p>DARK ROAST • WHOLE BEAN</p><h3>Midnight Espresso</h3><small>Cocoa, toasted almond and caramel.</small><div><strong>RM 38.00</strong><button class="add" data-name="Midnight Espresso" data-price="38">Add +</button></div></div>
-          </article>
-          <article class="product-card reveal" data-category="smooth">
-            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=85')"><span>SMOOTH</span></div>
-            <div class="product-body"><p>MEDIUM ROAST • GROUND</p><h3>Golden Sunrise</h3><small>Honey, citrus and roasted hazelnut.</small><div><strong>RM 34.00</strong><button class="add" data-name="Golden Sunrise" data-price="34">Add +</button></div></div>
-          </article>
-          <article class="product-card reveal" data-category="flavoured">
-            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=1000&q=85')"><span>AROMATIC</span></div>
-            <div class="product-body"><p>MEDIUM ROAST • WHOLE BEAN</p><h3>Velvet Vanilla</h3><small>Vanilla, soft caramel and silky cream.</small><div><strong>RM 39.00</strong><button class="add" data-name="Velvet Vanilla" data-price="39">Add +</button></div></div>
-          </article>
-          <article class="product-card reveal" data-category="flavoured">
-            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1000&q=85')"><span>INDULGENT</span></div>
-            <div class="product-body"><p>DARK ROAST • GROUND</p><h3>Mocha Truffle</h3><small>Dark chocolate and rich truffle aroma.</small><div><strong>RM 42.00</strong><button class="add" data-name="Mocha Truffle" data-price="42">Add +</button></div></div>
-          </article>
-          <article class="product-card reveal" data-category="smooth">
-            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=1000&q=85')"><span>TROPICAL</span></div>
-            <div class="product-body"><p>LIGHT ROAST • CAPSULES</p><h3>Coconut Cloud</h3><small>Toasted coconut and brown sugar.</small><div><strong>RM 29.00</strong><button class="add" data-name="Coconut Cloud" data-price="29">Add +</button></div></div>
-          </article>
-          <article class="product-card reveal" data-category="bold">
-            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=1000&q=85')"><span>SIGNATURE</span></div>
-            <div class="product-body"><p>DARK ROAST • WHOLE BEAN</p><h3>Heritage Blend</h3><small>Smoky, full-bodied and balanced.</small><div><strong>RM 45.00</strong><button class="add" data-name="Heritage Blend" data-price="45">Add +</button></div></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="royal-banner">
-      <div class="container royal-banner-grid">
-        <div class="reveal"><p class="eyebrow">ROXUS BREW SYSTEMS</p><h2>Royal design.<br>Barista performance.</h2><p>Elegant machines built for effortless everyday coffee and refined espresso rituals.</p><a class="btn btn-gold" href="#machines">Shop Machines</a></div>
-        <div class="banner-r reveal"><span>♛</span>R</div>
-      </div>
-    </section>
-
-    <section class="section light" id="machines">
-      <div class="container">
-        <div class="section-head reveal"><p class="eyebrow dark">COFFEE MACHINES</p><h2>Choose your Roxus machine</h2></div>
-        <div class="machine-grid">
-          <article class="machine-card reveal"><div style="background-image:url('https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=1000&q=85')"></div><section><h3>Roxus Mini One</h3><p>Compact capsule brewing for quick coffee.</p><strong>RM 399.00</strong><button class="add" data-name="Roxus Mini One" data-price="399">Add to cart</button></section></article>
-          <article class="machine-card featured reveal"><div style="background-image:url('https://images.unsplash.com/photo-1587080413959-06b859fb107d?auto=format&fit=crop&w=1000&q=85')"></div><section><h3>Roxus Barista Pro</h3><p>Integrated grinder and professional steam wand.</p><strong>RM 1,899.00</strong><button class="add" data-name="Roxus Barista Pro" data-price="1899">Add to cart</button></section></article>
-          <article class="machine-card reveal"><div style="background-image:url('https://images.unsplash.com/photo-1565452344518-47faca79dc69?auto=format&fit=crop&w=1000&q=85')"></div><section><h3>Roxus Atelier X</h3><p>One-touch espresso, latte and cappuccino.</p><strong>RM 3,499.00</strong><button class="add" data-name="Roxus Atelier X" data-price="3499">Add to cart</button></section></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="bakery">
-      <div class="container">
-        <div class="section-head reveal"><p class="eyebrow dark">ARTISAN BAKERY</p><h2>Coffee deserves good company</h2></div>
-        <div class="bakery-grid">
-          <article class="bakery-card reveal"><div style="background-image:url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=900&q=85')"></div><section><h3>Butter Croissant</h3><p>Flaky and baked fresh.</p><strong>RM 8.90</strong><button class="add" data-name="Butter Croissant" data-price="8.9">Add +</button></section></article>
-          <article class="bakery-card reveal"><div style="background-image:url('https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=900&q=85')"></div><section><h3>Roxus Tiramisu</h3><p>Espresso-soaked mascarpone layers.</p><strong>RM 18.90</strong><button class="add" data-name="Roxus Tiramisu" data-price="18.9">Add +</button></section></article>
-          <article class="bakery-card reveal"><div style="background-image:url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85')"></div><section><h3>Burnt Cheesecake</h3><p>Caramelised and creamy.</p><strong>RM 16.90</strong><button class="add" data-name="Burnt Cheesecake" data-price="16.9">Add +</button></section></article>
-          <article class="bakery-card reveal"><div style="background-image:url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=85')"></div><section><h3>Berry Danish</h3><p>Buttery pastry with berries.</p><strong>RM 10.90</strong><button class="add" data-name="Berry Danish" data-price="10.9">Add +</button></section></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="subscription" id="subscription">
-      <div class="container">
-        <div class="section-head centered reveal"><p class="eyebrow">THE ROXUS CLUB</p><h2>Royal coffee, delivered monthly</h2></div>
-        <div class="plan-grid">
-          <article class="plan reveal"><span>BRONZE</span><h3>Morning Starter</h3><strong>RM 58<small>/month</small></strong><p>2 coffee bags<br>Flexible delivery<br>Tasting notes</p><button data-plan="Morning Starter">Choose Plan</button></article>
-          <article class="plan premium reveal"><span>ROYAL FAVOURITE</span><h3>Daily Ritual</h3><strong>RM 108<small>/month</small></strong><p>4 coffee bags<br>Free delivery<br>10% bakery discount</p><button data-plan="Daily Ritual">Choose Plan</button></article>
-          <article class="plan reveal"><span>RESERVE</span><h3>Roxus Reserve</h3><strong>RM 168<small>/month</small></strong><p>6 coffee bags<br>Seasonal roast<br>Priority delivery</p><button data-plan="Roxus Reserve">Choose Plan</button></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section story" id="story">
-      <div class="container story-grid">
-        <img class="brand-board reveal" src="assets/roxus-royal-r-logo.png" alt="Roxus Coffee royal brand identity">
-        <div class="reveal"><p class="eyebrow dark">THE ROXUS STORY</p><h2>A royal standard for everyday coffee</h2><p>Roxus celebrates the small ritual that changes the rhythm of the day. Our coffee, machines and bakery collection are created to feel refined, warm and easy to enjoy.</p><blockquote>Live Up Your Day.</blockquote></div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-grid">
-      <div class="footer-brand"><span>♛</span><strong>R</strong><h3>ROXUS COFFEE</h3><p>Live Up Your Day.</p></div>
-      <div><h4>Shop</h4><a href="#coffee">Coffee</a><a href="#machines">Machines</a><a href="#bakery">Bakery</a></div>
-      <div><h4>Explore</h4><a href="#subscription">Subscriptions</a><a href="#story">Our Story</a><a href="#">Contact</a></div>
-      <div><h4>Follow</h4><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">TikTok</a></div>
+      <div class="hero-rating"><span class="stars">★★★★★</span><strong>4.9/5</strong><small>from 2,000+ coffee lovers</small></div>
     </div>
-    <div class="container copyright">© 2026 Roxus Coffee. Live Up Your Day.</div>
-  </footer>
+    <div class="hero-note reveal">ARTISAN<br>COFFEE<br>FRESHLY<br>ROASTED</div>
+  </div>
+  <div class="scroll-cue">SCROLL DOWN</div>
+</section>
 
-  <aside class="cart-drawer" id="cartDrawer">
-    <div class="cart-head"><h2>Your Cart</h2><button id="closeCart">×</button></div>
-    <div id="cartItems" class="cart-items"><p class="empty">Your cart is empty.</p></div>
-    <div class="cart-foot"><div><span>Total</span><strong id="cartTotal">RM 0.00</strong></div><button class="btn btn-gold checkout" id="checkout">Checkout</button></div>
-  </aside>
-  <div class="backdrop" id="backdrop"></div>
-  <div class="toast" id="toast"></div>
+<section class="benefits">
+  <div class="container benefit-grid">
+    <div class="benefit"><span class="benefit-icon">◉</span><strong>Freshly Roasted</strong><small>Small batch daily</small></div>
+    <div class="benefit"><span class="benefit-icon">♕</span><strong>Premium Quality</strong><small>100% Arabica beans</small></div>
+    <div class="benefit"><span class="benefit-icon">▣</span><strong>Fast Delivery</strong><small>Carefully delivered</small></div>
+    <div class="benefit"><span class="benefit-icon">✓</span><strong>Secure Payment</strong><small>Safe checkout</small></div>
+    <div class="benefit"><span class="benefit-icon">✦</span><strong>Expertly Crafted</strong><small>By passionate baristas</small></div>
+  </div>
+</section>
 
-  <script src="script.js"></script>
+<section class="section">
+  <div class="container category-grid">
+    <a class="category-card cat-coffee" href="#coffee"><div class="category-copy"><h3>Coffee</h3><p>Premium beans for every taste</p><span>Shop Coffee →</span></div></a>
+    <a class="category-card cat-machine" href="#machines"><div class="category-copy"><h3>Coffee Machines</h3><p>Brew like a barista at home</p><span>Explore →</span></div></a>
+    <a class="category-card cat-bakery" href="#bakery"><div class="category-copy"><h3>Bakery</h3><p>Freshly baked every day</p><span>Shop Bakery →</span></div></a>
+    <a class="category-card cat-sub" href="#subscription"><div class="category-copy"><h3>Subscriptions</h3><p>Great coffee delivered monthly</p><span>Subscribe →</span></div></a>
+  </div>
+</section>
+
+<section class="section" id="coffee">
+  <div class="container">
+    <div class="section-head reveal"><p class="eyebrow">THE ROXUS COLLECTION</p><h2>Signature Coffee</h2><p>Rich profiles created for bold mornings, elegant afternoons and memorable coffee rituals.</p></div>
+    <div class="filters"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="bold">Bold</button><button class="filter" data-filter="smooth">Smooth</button><button class="filter" data-filter="flavoured">Flavoured</button></div>
+    <div class="product-grid" id="coffeeGrid">
+      <article class="product-card reveal" data-category="bold"><div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1000&q=88')"><span>BESTSELLER</span></div><div class="product-body"><p>DARK ROAST • WHOLE BEAN</p><h3>Midnight Espresso</h3><small>Cocoa, almond and caramel.</small><div class="product-bottom"><strong>RM 38.00</strong><button class="add" data-name="Midnight Espresso" data-price="38">Add +</button></div></div></article>
+      <article class="product-card reveal" data-category="smooth"><div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=88')"><span>SMOOTH</span></div><div class="product-body"><p>MEDIUM ROAST • GROUND</p><h3>Golden Sunrise</h3><small>Honey, citrus and hazelnut.</small><div class="product-bottom"><strong>RM 34.00</strong><button class="add" data-name="Golden Sunrise" data-price="34">Add +</button></div></div></article>
+      <article class="product-card reveal" data-category="flavoured"><div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=1000&q=88')"><span>AROMATIC</span></div><div class="product-body"><p>FLAVOURED • WHOLE BEAN</p><h3>Velvet Vanilla</h3><small>Vanilla, caramel and cream.</small><div class="product-bottom"><strong>RM 39.00</strong><button class="add" data-name="Velvet Vanilla" data-price="39">Add +</button></div></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section dark-section" id="machines">
+  <div class="container">
+    <div class="section-head reveal"><p class="eyebrow">ROXUS BREW SYSTEMS</p><h2>Coffee Machines</h2><p>Elegant machines designed for effortless daily coffee and refined espresso rituals.</p></div>
+    <div class="machine-grid">
+      <article class="machine-card reveal"><div class="machine-image" style="background-image:url('https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=1000&q=88')"></div><div class="card-copy"><h3>Roxus Mini One</h3><p>Compact capsule brewing.</p><strong>RM 399.00</strong><button class="add" data-name="Roxus Mini One" data-price="399">Add to cart</button></div></article>
+      <article class="machine-card reveal"><div class="machine-image" style="background-image:url('https://images.unsplash.com/photo-1587080413959-06b859fb107d?auto=format&fit=crop&w=1000&q=88')"></div><div class="card-copy"><h3>Roxus Barista Pro</h3><p>Integrated grinder and steam wand.</p><strong>RM 1,899.00</strong><button class="add" data-name="Roxus Barista Pro" data-price="1899">Add to cart</button></div></article>
+      <article class="machine-card reveal"><div class="machine-image" style="background-image:url('https://images.unsplash.com/photo-1565452344518-47faca79dc69?auto=format&fit=crop&w=1000&q=88')"></div><div class="card-copy"><h3>Roxus Atelier X</h3><p>One-touch espresso and latte.</p><strong>RM 3,499.00</strong><button class="add" data-name="Roxus Atelier X" data-price="3499">Add to cart</button></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="bakery">
+  <div class="container">
+    <div class="section-head reveal"><p class="eyebrow">ARTISAN BAKERY</p><h2>Coffee deserves good company</h2></div>
+    <div class="bakery-grid">
+      <article class="bakery-card reveal"><div class="bakery-image" style="background-image:url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=900&q=88')"></div><div class="card-copy"><h3>Butter Croissant</h3><p>Flaky and baked fresh.</p><strong>RM 8.90</strong><button class="add" data-name="Butter Croissant" data-price="8.9">Add +</button></div></article>
+      <article class="bakery-card reveal"><div class="bakery-image" style="background-image:url('https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=900&q=88')"></div><div class="card-copy"><h3>Roxus Tiramisu</h3><p>Espresso and mascarpone.</p><strong>RM 18.90</strong><button class="add" data-name="Roxus Tiramisu" data-price="18.9">Add +</button></div></article>
+      <article class="bakery-card reveal"><div class="bakery-image" style="background-image:url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=88')"></div><div class="card-copy"><h3>Burnt Cheesecake</h3><p>Caramelised and creamy.</p><strong>RM 16.90</strong><button class="add" data-name="Burnt Cheesecake" data-price="16.9">Add +</button></div></article>
+      <article class="bakery-card reveal"><div class="bakery-image" style="background-image:url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=88')"></div><div class="card-copy"><h3>Berry Danish</h3><p>Buttery pastry with berries.</p><strong>RM 10.90</strong><button class="add" data-name="Berry Danish" data-price="10.9">Add +</button></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section subscription" id="subscription">
+  <div class="container">
+    <div class="section-head reveal"><p class="eyebrow">THE ROXUS CLUB</p><h2>Royal coffee, delivered monthly</h2></div>
+    <div class="plan-grid">
+      <article class="plan reveal"><span>BRONZE</span><h3>Morning Starter</h3><strong>RM 58<small>/month</small></strong><p>2 coffee bags<br>Flexible delivery<br>Tasting notes</p><button data-plan="Morning Starter">Choose Plan</button></article>
+      <article class="plan highlight reveal"><span>ROYAL FAVOURITE</span><h3>Daily Ritual</h3><strong>RM 108<small>/month</small></strong><p>4 coffee bags<br>Free delivery<br>10% bakery discount</p><button data-plan="Daily Ritual">Choose Plan</button></article>
+      <article class="plan reveal"><span>RESERVE</span><h3>Roxus Reserve</h3><strong>RM 168<small>/month</small></strong><p>6 coffee bags<br>Seasonal roast<br>Priority delivery</p><button data-plan="Roxus Reserve">Choose Plan</button></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="story">
+  <div class="container story-grid">
+    <div class="story-logo reveal"><span class="brand-crown">♛</span><span class="brand-r">R</span><span class="brand-name">ROXUS</span><span class="brand-coffee">COFFEE</span><span class="brand-tagline">LIVE UP YOUR DAY</span></div>
+    <div class="story-copy reveal"><p class="eyebrow">THE ROXUS STORY</p><h2>A royal standard for everyday coffee</h2><p>Roxus celebrates the small ritual that changes the rhythm of the day. Our coffee, machines and bakery collection are created to feel refined, warm and easy to enjoy.</p><blockquote>Live Up Your Day.</blockquote></div>
+  </div>
+</section>
+</main>
+
+<footer id="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand"><span class="brand-r">R</span><span class="brand-name">ROXUS</span><span class="brand-coffee">COFFEE</span><p>Live Up Your Day.</p></div>
+    <div><h4>Shop</h4><a href="#coffee">Coffee</a><a href="#machines">Machines</a><a href="#bakery">Bakery</a></div>
+    <div><h4>Explore</h4><a href="#subscription">Subscriptions</a><a href="#story">Our Story</a><a href="#">Contact</a></div>
+    <div><h4>Follow</h4><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">TikTok</a></div>
+  </div>
+  <div class="container copyright">© 2026 Roxus Coffee. Live Up Your Day.</div>
+</footer>
+
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-head"><h2>Your Cart</h2><button id="closeCart">×</button></div>
+  <div class="cart-items" id="cartItems"><p class="empty">Your cart is empty.</p></div>
+  <div class="cart-foot"><div class="cart-total"><span>Total</span><strong id="cartTotal">RM 0.00</strong></div><button class="btn btn-gold checkout" id="checkout">Checkout</button></div>
+</aside>
+
+<div class="backdrop" id="backdrop"></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const cart=[];
+const drawer=document.getElementById("cartDrawer");
+const backdrop=document.getElementById("backdrop");
+const cartItems=document.getElementById("cartItems");
+const cartCount=document.getElementById("cartCount");
+const cartTotal=document.getElementById("cartTotal");
+const toast=document.getElementById("toast");
+
+function money(value){return `RM ${value.toFixed(2)}`}
+function showToast(text){toast.textContent=text;toast.classList.add("show");setTimeout(()=>toast.classList.remove("show"),1800)}
+function renderCart(){
+  cartCount.textContent=cart.length;
+  cartTotal.textContent=money(cart.reduce((sum,item)=>sum+item.price,0));
+  if(!cart.length){cartItems.innerHTML='<p class="empty">Your cart is empty.</p>';return}
+  cartItems.innerHTML=cart.map((item,index)=>`
+    <div class="cart-item">
+      <div><p>${item.name}</p><small>${money(item.price)}</small></div>
+      <button data-remove="${index}">Remove</button>
+    </div>`).join("");
+  document.querySelectorAll("[data-remove]").forEach(button=>{
+    button.onclick=()=>{cart.splice(Number(button.dataset.remove),1);renderCart()}
+  });
+}
+document.querySelectorAll(".add").forEach(button=>{
+  button.onclick=()=>{
+    cart.push({name:button.dataset.name,price:Number(button.dataset.price)});
+    renderCart();
+    showToast(button.dataset.name+" added to cart");
+  };
+});
+document.getElementById("cartButton").onclick=()=>{
+  drawer.classList.add("open");
+  backdrop.classList.add("show");
+  document.body.classList.add("locked");
+};
+function closeCart(){
+  drawer.classList.remove("open");
+  backdrop.classList.remove("show");
+  document.body.classList.remove("locked");
+}
+document.getElementById("closeCart").onclick=closeCart;
+backdrop.onclick=closeCart;
+document.getElementById("checkout").onclick=()=>showToast(cart.length?"Checkout demo ready for payment integration":"Your cart is empty");
+
+document.querySelectorAll(".filter").forEach(button=>{
+  button.onclick=()=>{
+    document.querySelectorAll(".filter").forEach(item=>item.classList.remove("active"));
+    button.classList.add("active");
+    document.querySelectorAll("#coffeeGrid .product-card").forEach(card=>{
+      card.classList.toggle("hidden",button.dataset.filter!=="all"&&card.dataset.category!==button.dataset.filter);
+    });
+  };
+});
+document.querySelectorAll("[data-plan]").forEach(button=>button.onclick=()=>showToast(button.dataset.plan+" selected"));
+const navMenu=document.getElementById("navMenu");
+document.getElementById("mobileMenu").onclick=()=>navMenu.classList.toggle("open");
+navMenu.querySelectorAll("a").forEach(link=>link.onclick=()=>navMenu.classList.remove("open"));
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add("visible")});
+},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(element=>observer.observe(element));
+</script>
+
 </body>
 </html>
